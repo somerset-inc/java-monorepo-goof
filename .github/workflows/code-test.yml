@@ -9,7 +9,7 @@ jobs:
       - name: Install snyk-to-html
         run: npm install -g snyk-to-html
       - name: Snyk Test
-        run: snyk code test --json | snyk-to-html -o results.html
+        run: snyk code test
         continue-on-error: true
         env:
            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
