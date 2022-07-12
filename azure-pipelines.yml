@@ -15,5 +15,9 @@ steps:
 
 - script: |
     snyk auth $(SNYK_TOKEN)
-    snyk code test
+    snyk code test --severity --json | snyk-to-html -o results.html
   displayName: 'Snyk Code Test'
+
+- publish: /results.html
+  artifact: SAST_Results
+  displayName: 'Publish Results'
