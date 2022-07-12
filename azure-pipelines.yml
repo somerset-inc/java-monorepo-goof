@@ -18,6 +18,6 @@ steps:
     snyk code test --severity --json | snyk-to-html -o results.html
   displayName: 'Snyk Code Test'
 
-- publish: $(Build.ArtifactStagingDirectory)/results.html
+- publish: $(System.DefaultWorkingDirectory)/results.html
   artifact: SAST_Results
   displayName: 'Publish Results'
