@@ -1,3 +1,8 @@
+trigger:
+  - branches:
+    include:
+    - master
+    - troy/*
 
 pool:
   vmImage: ubuntu-latest
