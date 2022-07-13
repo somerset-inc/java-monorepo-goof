@@ -3,6 +3,7 @@ trigger:
     include:
     - master
     - troy/*
+    - feature/*
 
 pool:
   vmImage: ubuntu-latest
@@ -15,7 +16,7 @@ steps:
 
 - script: |
     snyk auth $(SNYK_TOKEN)
-    snyk code test --severity --json | snyk-to-html -o results.html
+    snyk code test --severity-threshold=high --json | snyk-to-html -o results.html
   displayName: 'Snyk Code Test'
 
 - publish: $(System.DefaultWorkingDirectory)/results.html
